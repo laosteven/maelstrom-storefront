@@ -2,7 +2,7 @@ import { invariant } from "ts-invariant";
 import { RootWrapper } from "./pageWrapper";
 
 export const metadata = {
-	title: "Checkout · Saleor Storefront example",
+	title: "Checkout · Maelstrom Store",
 };
 
 export default function CheckoutPage({
@@ -19,9 +19,9 @@ export default function CheckoutPage({
 	return (
 		<div className="min-h-dvh bg-white">
 			<section className="mx-auto flex min-h-dvh max-w-7xl flex-col p-8">
-				<div className="flex items-center font-bold">
-					<a aria-label="homepage" href="/">
-						ACME
+				<div className="flex items-center font-bold whitespace-nowrap">
+					<a aria-label="homepage" href="/default-channel/products">
+						Maelstrom Store
 					</a>
 				</div>
 				<h1 className="mt-8 text-3xl font-bold text-neutral-900">Checkout</h1>

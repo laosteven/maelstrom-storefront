@@ -10,7 +10,7 @@ WORKDIR /app
 RUN export PNPM_VERSION=$(cat package.json | jq '.engines.pnpm' | sed -E 's/[^0-9.]//g')
 
 COPY package.json pnpm-lock.yaml ./
-RUN yarn global add pnpm@$PNPM_VERSION
+RUN yarn global add pnpm@8.9.0
 RUN pnpm i --frozen-lockfile --prefer-offline
 
 # Rebuild the source code only when needed
@@ -27,12 +27,13 @@ COPY . .
 ENV NEXT_OUTPUT=standalone
 ARG NEXT_PUBLIC_SALEOR_API_URL
 ENV NEXT_PUBLIC_SALEOR_API_URL=${NEXT_PUBLIC_SALEOR_API_URL}
+#ENV NEXT_PUBLIC_SALEOR_API_URL=http://10.0.0.65:8000/graphql/
 ARG NEXT_PUBLIC_STOREFRONT_URL
 ENV NEXT_PUBLIC_STOREFRONT_URL=${NEXT_PUBLIC_STOREFRONT_URL}
 
 # Get PNPM version from package.json
 RUN export PNPM_VERSION=$(cat package.json | jq '.engines.pnpm' | sed -E 's/[^0-9.]//g')
-RUN yarn global add pnpm@$PNPM_VERSION
+RUN yarn global add pnpm@8.9.0
 
 RUN pnpm build
 
