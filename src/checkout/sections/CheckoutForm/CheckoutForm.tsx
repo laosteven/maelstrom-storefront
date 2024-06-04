@@ -10,9 +10,9 @@ import { CollapseSection } from "@/checkout/sections/CheckoutForm/CollapseSectio
 import { Divider } from "@/checkout/components";
 import { UserShippingAddressSection } from "@/checkout/sections/UserShippingAddressSection";
 import { GuestShippingAddressSection } from "@/checkout/sections/GuestShippingAddressSection";
-import { UserBillingAddressSection } from "@/checkout/sections/UserBillingAddressSection";
+// import { UserBillingAddressSection } from "@/checkout/sections/UserBillingAddressSection";
 import { PaymentSection, PaymentSectionSkeleton } from "@/checkout/sections/PaymentSection";
-import { GuestBillingAddressSection } from "@/checkout/sections/GuestBillingAddressSection";
+// import { GuestBillingAddressSection } from "@/checkout/sections/GuestBillingAddressSection";
 import { useUser } from "@/checkout/hooks/useUser";
 
 export const CheckoutForm = () => {
@@ -36,7 +36,7 @@ export const CheckoutForm = () => {
 								<div className="py-4" data-testid="shippingAddressSection">
 									{user ? <UserShippingAddressSection /> : <GuestShippingAddressSection />}
 								</div>
-								{user ? <UserBillingAddressSection /> : <GuestBillingAddressSection />}
+								{/* {user ? <UserBillingAddressSection /> : <GuestBillingAddressSection />} */}
 							</CollapseSection>
 						</Suspense>
 					)}

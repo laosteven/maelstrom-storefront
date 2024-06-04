@@ -141,13 +141,12 @@ export const getAddressValidationRulesVariables = (
 	autoSave
 		? {
 				checkRequiredFields: false,
-		  }
+			}
 		: {};
 
 export const addressFieldsOrder: AddressField[] = [
 	"firstName",
 	"lastName",
-	"companyName",
 	"streetAddress1",
 	"streetAddress2",
 	"city",
@@ -156,6 +155,7 @@ export const addressFieldsOrder: AddressField[] = [
 	"cityArea",
 	"countryArea",
 	"phone",
+	"companyName",
 ];
 
 // api doesn't order the fields but we want to

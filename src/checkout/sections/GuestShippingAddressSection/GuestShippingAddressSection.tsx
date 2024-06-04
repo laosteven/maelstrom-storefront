@@ -14,13 +14,19 @@ export const GuestShippingAddressSection = () => {
 	return (
 		<FormProvider form={form}>
 			<AddressForm
-				title="Shipping address"
+				title="Contact address"
 				availableCountries={availableShippingCountries}
 				fieldProps={{
 					onChange: handleChange,
 					onBlur: handleBlur,
 				}}
 			/>
+			<span className="text-xs text-neutral-700">
+				Embroidery order 🧵: specify the words (example: <i>A. Forger</i>).
+				<br />
+				If multiple embroidery orders, specify <u>the size and the words</u> for each
+				<br /> (<i>MD: L. Forger, 3XL: B. Forger</i>).
+			</span>
 		</FormProvider>
 	);
 };
