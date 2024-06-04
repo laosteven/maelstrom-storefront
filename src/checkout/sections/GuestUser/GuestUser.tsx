@@ -11,7 +11,7 @@ type GuestUserProps = Pick<SignInFormContainerProps, "onSectionChange"> & {
 };
 
 export const GuestUser: React.FC<GuestUserProps> = ({
-	// onSectionChange,
+	onSectionChange,
 	onEmailChange,
 	email: initialEmail,
 }) => {
@@ -24,7 +24,7 @@ export const GuestUser: React.FC<GuestUserProps> = ({
 			title="Contact details"
 			// redirectSubtitle="Already have an account?"
 			// redirectButtonLabel="Sign in"
-			// onSectionChange={onSectionChange}
+			onSectionChange={onSectionChange}
 		>
 			<FormProvider form={form}>
 				<div className="grid grid-cols-1 gap-3">

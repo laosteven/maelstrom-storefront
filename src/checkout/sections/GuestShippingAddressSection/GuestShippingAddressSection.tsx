@@ -22,10 +22,10 @@ export const GuestShippingAddressSection = () => {
 				}}
 			/>
 			<span className="text-xs text-neutral-700">
-				Embroidery order 🧵: specify the words (example: <i>A. Forger</i>).
+				Embroidery order 🧵: specify the words here (example: <i>A. Forger</i>).
 				<br />
-				If multiple embroidery orders, specify <u>the size and the words</u> for each
-				<br /> (<i>MD: L. Forger, 3XL: B. Forger</i>).
+				If multiple embroidery orders, specify <u>the size and the words</u> for each (
+				<i>SM: A. Forger, 3XL: B. Forger</i>).
 			</span>
 		</FormProvider>
 	);
