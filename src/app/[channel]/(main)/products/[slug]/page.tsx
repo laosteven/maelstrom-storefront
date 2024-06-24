@@ -56,7 +56,7 @@ export async function generateMetadata(
 							alt: product.name,
 						},
 					],
-			  }
+				}
 			: null,
 	};
 }
@@ -99,6 +99,8 @@ export default async function Page({
 	const variants = product.variants;
 	const selectedVariantID = searchParams.variant;
 	const selectedVariant = variants?.find(({ id }) => id === selectedVariantID);
+	const mediaImage = selectedVariant?.media?.[0];
+	const imageToDisplay = mediaImage ?? firstImage;
 
 	async function addItem() {
 		"use server";
@@ -132,11 +134,11 @@ export default async function Page({
 	const price = selectedVariant?.pricing?.price?.gross
 		? formatMoney(selectedVariant.pricing.price.gross.amount, selectedVariant.pricing.price.gross.currency)
 		: isAvailable
-		  ? formatMoneyRange({
+			? formatMoneyRange({
 					start: product?.pricing?.priceRange?.start?.gross,
 					stop: product?.pricing?.priceRange?.stop?.gross,
-		    })
-		  : "";
+				})
+			: "";
 
 	const productJsonLd: WithContext<Product> = {
 		"@context": "https://schema.org",
@@ -154,7 +156,7 @@ export default async function Page({
 						priceCurrency: selectedVariant.pricing?.price?.gross.currency,
 						price: selectedVariant.pricing?.price?.gross.amount,
 					},
-			  }
+				}
 			: {
 					name: product.name,
 
@@ -168,7 +170,7 @@ export default async function Page({
 						lowPrice: product.pricing?.priceRange?.start?.gross.amount,
 						highPrice: product.pricing?.priceRange?.stop?.gross.amount,
 					},
-			  }),
+				}),
 	};
 
 	return (
@@ -181,13 +183,13 @@ export default async function Page({
 			/>
 			<form className="grid gap-2 sm:grid-cols-2 lg:grid-cols-8" action={addItem}>
 				<div className="md:col-span-1 lg:col-span-5">
-					{firstImage && (
+					{imageToDisplay && (
 						<ProductImageWrapper
 							priority={true}
-							alt={firstImage.alt ?? ""}
+							alt={imageToDisplay.alt ?? ""}
 							width={1024}
 							height={1024}
-							src={firstImage.url}
+							src={imageToDisplay.url}
 						/>
 					)}
 				</div>
